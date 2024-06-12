@@ -1,0 +1,121 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+body {
+    background-color: #ffffff;
+    color: #000;
+    background-image: url(../img/pugnovo.png);
+    background-repeat: no-repeat;
+   background-attachment: fixed;
+    background-size: 100%;
+    font-family: "Oswald", sans-serif;
+}
+header{
+    background-color: #FF0099;
+    padding: 2rem ;
+   display: flex;
+   align-items: center;
+}
+.vermelho {
+    color: red;/*Aqui são classes para utilizar em momentos especificos, tipo uma variavel do python*/
+}   
+.azul{
+    color: blue;
+}
+.sublinhado{
+    text-decoration: underline;
+}
+#maiusculo{
+text-transform: uppercase;
+}
+a:hover{
+color: yellow;
+}
+p::first-letter{
+font-size: 50px;
+}
+p::first-line{                                                                                                                                                                                                                                                                               
+    color: var(--cor-primaria)
+}
+:root{
+    --cor-primaria: green;
+    --cor-secundaria: brown;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Tiny5", sans-serif;
+
+}
+h1, h6 {
+    text-align: center;
+    font-size: 20px;
+}
+
+#form-buscar{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.icon-link{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0.5rem;
+}
+#buscar{
+    flex-grow: 0.75;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+
+}   #btn-buscar{
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 11%;
+    cursor: pointer;
+}
+nav{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+    background-color: #FDACE0;
+    padding: 0.5rem;
+}
+nav a:first-child{
+    border-right: 3px solid #000;
+}
+.banner{
+    width: 100%;
+    background-image: url("../img/banner.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    position: relative;
+}
+
+.txt-banner{
+    position: absolute;
+    top: 10%;
+    right: 10%;
+
+}
+.conteudo h1{
+ text-align: center;
+}
+.card-container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;    
+}
+.card{
+    border: 1px solid #3D1C31;
+    border-radius: 8px;
+    background-color: #3D1C31;
+}
