@@ -1,46 +1,76 @@
-<section>
-    <form>
-        <input type="text" name="nome" id="nome">
-        <label for="nome">Nome</label>
-        <input type="submit" value="RECEBA!">
+<!DOCTYPE html>
+<html lang="en">
 
-        <label for="senha">Senha</label>
-        <input type="password" name="Senha" id="senha">
-        <input type="submit" value="Enviar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOBRE A LOJA</title>
+    <link rel="shortcut icon" href="img/jordanlogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/estilos.css" </head>
 
-        <label for="num">numero</label>
-        <input type="number" name="Numero" id="num">
-        <input type="submit" value="Manda o zap">
-        
-       <fieldset>
-        <legend>Qual sua linguagem favorita?</legend>
-            <input type="radio" name="lang" id="html" value="html">
-            <label for="html">HTML</label>
+<body>
+    <header>
+        <h3><a href="">LudoFashion</a></h3>
+
+        <form action="" id="form-buscar">
+            <input type="search" name="buscar" id="buscar" placeholder="Buscar...">
+            <button type="submit" id="btn-buscar"> <img src="img/pesquisa2.png" alt="" width="35px"></button>
+        </form>
+
+        <a href="index2.html" class="icon-link">
+            <img src="img/conta.png" alt="" width="50px">
+            Principal
+        </a>
+
+        <a href="sobre.html" class="icon-link">
+            <img src="img/ajuda.png" alt="" width="50px">
+            Suporte
+        </a>
+
+    </header>
+
+    <nav>
+        <a href="catalogo.html">Catalogo </a>
+        <a href="Sobre">Sobre a loja </a>
+    </nav>
+
+    <section class="quem-cont">
+
+        <div>
+            <h1 class="sobre-tt">Quem somos?</h1>
+            <p class="txt-sobre">
+
+                LudoFashion é uma boutique online que cativa o coração de mulheres modernas e conscientes da moda.
+                Especializada na venda de cosméticos e roupas femininas, a LudoFashion oferece uma seleção
+                cuidadosamente curada de produtos que combinam elegância, estilo e qualidade. Desde os mais recentes
+                lançamentos em produtos de beleza até as últimas tendências em moda feminina, cada item da LudoFashion é
+                escolhido para inspirar confiança e beleza em suas clientes. Com um compromisso inabalável com a
+                qualidade e o serviço ao cliente, a LudoFashion se destaca como um destino confiável para mulheres que
+                buscam expressar sua individualidade através do estilo. <br>
+                <br>
+                <strong>Visão:</strong> Ser a principal boutique online para mulheres modernas e conscientes da moda,
+                oferecendo uma
+                experiência única e inspiradora. <br>
+                <strong> Missão:</strong> Proporcionar uma seleção cuidadosamente curada de cosméticos e roupas
+                femininas que inspirem
+                confiança e expressão individual, com excelência em qualidade e serviço ao cliente.<br>
+                <strong>Valores:</strong> Excelência, Integridade, Empoderamento.
+            </p>
+        </div>
+        <div class="org">
+            <img src="img/sobre.png" alt="" class="sobre-img">
+            <div class="secon-icon">
+                <img src="img/insta.png" alt="">
+                <img src="img/whats.png" alt="">
+                <img src="img/X.png" alt="">
+
+            </div>
+        </div>
+    </section>
 
 
-            <input type="radio" name="lang" id="css" value="css">
-            <label for="css">CSS</label>
-       </fieldset>
-        
-        <fieldset>
-            <legend>Como você dar um rolê?</legend>
-            <input type="checkbox" name="transporte[]" id="pe" value="pe">
-            <label for="pe">A pé </label>
 
-            <input type="checkbox" name="transporte[]" id="onibus" value="onibus">
-            <label for="onibus">Onibus</label>
 
-        </fieldset>
-        <input type="submit" value="Conta ae">
-        
+</body>
 
-        <label for="data">Data</label>
-        <input type="date" name="data" id="data" max="2006-01-01">
-
-        <label for="foto">Foto de perfil</label>
-        <input type="file" name="foto" id="foto" accept="image/*">
-
-        <input type="hidden" name="id" value="200">
-        <input type="submit" value="Enviar">
-    </form>
-</section>
+</html>

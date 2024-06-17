@@ -70,7 +70,7 @@ p::first-line {
 }
 
 :root {
-    --cor-primaria: rgb(255, 255, 255);
+    --cor-primaria: rgb(0, 0, 0);
     --cor-secundaria: brown;
 }
 
@@ -112,7 +112,23 @@ h4 div{
     align-items: center;
     margin: 0 0.5rem;
 }
+.org{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
 
+   
+}
+.secon-icon{
+    margin-top: 10%;
+}
+.secon-icon img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
 #buscar {
     flex-grow: 0.75;
     padding: 0.5rem;
@@ -137,10 +153,12 @@ nav {
     background-color: #FDACE0;
     padding: 0.5rem;
     text-decoration: none;
-}
 
-nav a:first-child {
+    }
+
+nav a{
     border-right: 3px solid #000;
+    color: #000;
 }
 
 .banner {
@@ -158,7 +176,31 @@ nav a:first-child {
     right: 10%;
     text-align: right;
 }
+.txt-sobre{
+    top: 30%;
+    margin-left: 5%;
+    text-align: center;
+    font-size: 25px;
 
+}
+.sobre-img{
+    height: 450px;
+    width: 450px;
+    border-radius: 50%;
+    margin-top: 10%;
+   
+}
+.sobre-tt{
+    font-size: 60px;
+    text-align: left;
+    margin-left: 10%;
+    font-weight: 400;
+
+}
+.quem-cont{
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+}
 .conteudo h1 {
     text-align: center;
 }
@@ -196,4 +238,24 @@ nav a:first-child {
 .extra{
     font-family: "Playfair Display", serif;
 
+}
+
+.cat-cat{
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+  
+}
+.org-prod{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.btn-cat{
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 11%;
+    cursor: pointer;
 }
