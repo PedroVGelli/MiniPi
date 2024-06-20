@@ -319,3 +319,71 @@ a:hover {
     text-shadow: -3px -1px #000;
     transition: 0.5s;
 }
+.retangulo2{
+    background-color: #FF0099;
+    width: 500px;
+    height: 650px;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5%;
+    color: #000;
+    text-align: center;
+    }
+    .retangulo2 h3{
+        font-size: 50px;
+        font-weight: 400;
+    }
+    .testando{
+        position: relative;
+        min-height: calc(100vh - 8rem);
+    }
+
+    .botoeslog{
+        display: flex;
+        flex-direction: column;
+       
+       }
+      
+       #ajeitar{
+        margin-top: 20%;
+       }
+       .consert{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 5%;
+       }
+      .consert input{
+        width: 200px;
+        height: 40px;
+        border-radius: 5%;
+        display: flex;
+        flex-direction: column;
+
+      }
+      #enviar{
+        margin-top: 5%;
+        background-color: #000;
+        color: #fff;
+        width: 200px;
+        height: 40px;
+      }
+      #produto{
+        background-color: #FDACE0;
+        width: 200px;
+        height: 40px;
+        border-radius: 20px;
+        color: #000;
+        border: none;
+      }
+
+    .retanguloprod{
+        background-color: #FF0099;
+        padding: 2rem;
+        display: flex;
+        color: #fff;
+        font-size: 40px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
