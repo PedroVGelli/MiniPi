@@ -1,46 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="shortcut icon" href="img/jordanlogo.png" type="image/x-icon">
-    <title>HTML PROJETO</title>
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
-</head>
-
-<body>
-    <header class="">
-        <h3><a href="index.html">LudoFashion</a></h3>
-
-        <form action="" id="form-buscar">
-            <input type="search" name="buscar" id="buscar" placeholder="Buscar...">
-            <button type="submit" id="btn-buscar"> <img src="img/pesquisa2.png" alt="" width="35px"></button>
-        </form>
-
-        <a href="login.html" class="icon-link">
-            <img src="img/conta.png" alt="" width="40px">
-            Principal
-        </a>
-
-        <a href="sobre.html" class="icon-link">
-            <img src="img/ajuda.png" alt="" width="40px">
-            Suporte
-        </a>
 
 
-    </header>
-
-    <nav>
-        <a href="catalogo.html">Catalogo </a>
-        <a href="sobre.html">Sobre a loja </a>
-    </nav>
-
-
+    <?php @require 'header.php'?>
 
     <section class="cat-cat">
 
@@ -90,7 +50,7 @@
             <h5>Conheça nosso catálogo de produtos</h5>
 
             <p>Os mais variados produtos femininos com os melhores preços do mercado!</p>
-
+            <a href="cadastrados.php">testando</a>
             <div class="cat-prod">
                 <div>
                     <img src="img/jaqueta.png" alt="">

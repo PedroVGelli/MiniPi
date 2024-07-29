@@ -1,39 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOBRE A LOJA</title>
-    <link rel="shortcut icon" href="img/jordanlogo.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/estilos.css"> </head>
-
-<body>
-    <header>
-        <h3><a href="index.html">LudoFashion</a></h3>
-
-        <form action="" id="form-buscar">
-            <input type="search" name="buscar" id="buscar" placeholder="Buscar...">
-            <button type="submit" id="btn-buscar"> <img src="img/pesquisa2.png" alt="" width="35px"></button>
-        </form>
-
-        <a href="index2.html" class="icon-link">
-            <img src="img/conta.png" alt="" width="50px">
-            Principal
-        </a>
-
-        <a href="sobre.html" class="icon-link">
-            <img src="img/ajuda.png" alt="" width="50px">
-            Suporte
-        </a>
-
-    </header>
-
-    <nav>
-        <a href="catalogo.html">Catalogo </a>
-        <a href="sobre.html">Sobre a loja </a>
-    </nav>
-
+    <?php @require 'header.php'?>
     <section class="quem-cont">
 
         <div>
