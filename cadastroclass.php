@@ -20,7 +20,7 @@ class cadastrar{
         $this->senha = $telefone
     }
 
-    // Getters para acessar as propriedades do carro
+    // Getters para acessar as propriedades do usuario
     public function getusuario() {
         return $this->usuario;
     }
