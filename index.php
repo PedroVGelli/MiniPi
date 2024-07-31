@@ -1,6 +1,27 @@
 
-    <?php @require 'header.php'?>
+  <?php
+session_start();
+require 'config.php';
 
+// Verificar login e perfil
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+
+    $stmt = $pdo->prepare('SELECT perfil FROM usuarios WHERE id = ?');
+    $stmt->execute([$user_id]);
+    $user = $stmt->fetch();
+
+    if ($user['perfil'] !== 'normal') {
+        header('Location: index.php');
+        exit();
+    }
+} else {
+    header('Location: login.php');
+    exit();
+}
+?>
+  <?php @require 'header.php'?>
+  <h1>Olá Usuário Normal!</h1>
         <section class="banner">
          <h4>   
             <div class="txt-banner" >
@@ -33,6 +54,8 @@
         <div>
         <p>Aqui na LudoFashion você irá encontrar a melhor variedade de moda e cosmeticos femininos e com os melhores preços do mercado</p>
         </div>
+        <a href="logout.php">Sair</a>
+
     </footer>
     
     

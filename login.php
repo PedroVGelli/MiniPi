@@ -42,13 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php if (isset($error)) echo "<p>$error</p>"; ?>
     </form>
 
-    <!-- Formulário para login do administrador -->
-    <h2>Login do Administrador</h2>
-    <form method="post" action="">
-        <input type="hidden" name="email" value="admin@exemplo.com">
-        <input type="hidden" name="senha" value="senha_admin">
-        <button type="submit">Entrar como Administrador</button>
-    </form>
+   
+    <a href="cadastro.php">TESTANDO</a>
 </body>
 </html>
 

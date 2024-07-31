@@ -50,7 +50,7 @@
             <h5>Conheça nosso catálogo de produtos</h5>
 
             <p>Os mais variados produtos femininos com os melhores preços do mercado!</p>
-            <a href="cadastrados.php">testando</a>
+            <a href="cadastro.php">testando</a>
             <div class="cat-prod">
                 <div>
                     <img src="img/jaqueta.png" alt="">

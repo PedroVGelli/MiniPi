@@ -325,6 +325,18 @@ a:hover {
     color: #000;
     text-align: center;
     }
+    .retangulo3{
+        background-color: #FF0099;
+        width: 700px;
+        height: 650px;
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 5%;
+        color: #000;
+        text-align: center;
+        margin-top: 5%;
+        }
     .retangulo2 h3{
         font-size: 50px;
         font-weight: 400;

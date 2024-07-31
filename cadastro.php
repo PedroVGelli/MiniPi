@@ -1,34 +1,37 @@
+
 <?php
-session_start();
-require 'config.php';
+require 'cadastroclass.php';
+require 'gerenciarclass.php';
 
-// Verificar login e perfil
-if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
+// Verifica se os dados do formulário foram enviados
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nascimento = $_POST['nascimento'];
+    $CPF = $_POST['CPF'];
+    $usuarios = $_POST['nome'];
+    $senha = $_POST['senha'];
+    $telefone = $_POST['telefone']
 
-    $stmt = $pdo->prepare('SELECT perfil FROM usuarios WHERE id = ?');
-    $stmt->execute([$user_id]);
-    $user = $stmt->fetch();
+    // Cria um novo objeto Usuario
+    $usuario = new usuario($nascimento, $CPF, $usuarios, $senha, $telefone);
 
-    if ($user['perfil'] !== 'administrador') {
-        header('Location: index.php');
-        exit();
-    }
-} else {
-    header('Location: login.php');
-    exit();
+    // Gerencia o CRUD usando Gerenciador
+    $gerenciadorUsuarios = new GerenciadorUsuarios();
+    $gerenciadorUsuarios->adicionarUsuarios($usuario);
+
+    // Redireciona para a página principal
+    header('Location: index.php');
+    exit;
 }
-?>
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Dashboard Administrador</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Olá Usuário Administrador!</h1>
-    <a href="logout.php">Sair</a>
+<div class='retangulo3'>
+    <h1>Cadastro</h1>
+    <form method="post" action="">
+        <label>Email:</label>
+        <input type="email" name="email" required>
+        <label>Senha:</label>
+        <input type="password" name="senha" required>
+        <button type="submit">Confirme seu cadastro</button>
+        <?php if (isset($error)) echo "<p>$error</p>"; ?>
+    </form>
+ <div>
 </body>
-</html>
