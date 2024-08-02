@@ -24,9 +24,9 @@
             <button type="submit" id="btn-buscar"> <img src="img/pesquisa2.png" alt="" width="35px"></button>
         </form>
 
-        <a href="login.php" class="icon-link">
+        <a href="cadastro.php" class="icon-link">
             <img src="img/conta.png" alt="" width="40px">
-            Principal
+            Cadastre-se
         </a>
 
         <a href="sobre.php" class="icon-link">
