@@ -27,82 +27,148 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nome = $_POST['nome'];
         $tamanho = $_POST['tamanho'];
         $material = $_POST['material'];
-    
 
-        $stmt = $pdo->prepare('INSERT INTO produtos (nome, material,tamanho) VALUES (?, ?, ?)');
-        $stmt->execute([$nome, $material, $tamanho]);
+        $imagemNome = null;
+
+        // Lida com o upload da foto
+        if (isset($_FILES['foto']) && $_FILES['foto']['error'] == UPLOAD_ERR_OK) {
+            $fotoTmp = $_FILES['foto']['tmp_name'];
+            $imagemNome = uniqid() . '.jpg'; // Gera um nome único para a foto
+            $destino = 'uploads/' . $imagemNome;
+
+            // Redimensiona a imagem para 218x148 px
+            list($larguraOriginal, $alturaOriginal) = getimagesize($fotoTmp);
+            $imagemOriginal = imagecreatefromjpeg($fotoTmp);
+            $imagemRedimensionada = imagecreatetruecolor(218, 148);
+            imagecopyresampled($imagemRedimensionada, $imagemOriginal, 0, 0, 0, 0, 218, 148, $larguraOriginal, $alturaOriginal);
+            imagejpeg($imagemRedimensionada, $destino);
+            imagedestroy($imagemOriginal);
+            imagedestroy($imagemRedimensionada);
+        }
+
+        $stmt = $pdo->prepare('INSERT INTO produtos (nome, material, tamanho, imagens) VALUES (?, ?, ?, ?)');
+        $stmt->execute([$nome, $material, $tamanho, $imagemNome]);
     }
 
     // Exclusão de produtos selecionados
     if (isset($_POST['excluir'])) {
-        $ids = $_POST['id_prod'];
-        $ids = implode(',', array_map('intval', $ids));
-        $stmt = $pdo->prepare("DELETE FROM produtos WHERE id_prod IN ($ids)");
-        $stmt->execute();
+        $ids = $_POST['ids']; 
+
+        // Verifica se $ids é um array e aplica array_map
+        if (is_array($ids)) {
+            $ids = array_map('intval', $ids);
+            $ids = implode(',', $ids);
+
+            // Remove as imagens dos produtos antes de excluir
+            $stmt = $pdo->query("SELECT imagens FROM produtos WHERE id_prod IN ($ids)");
+            while ($row = $stmt->fetch()) {
+                $imagem = $row['imagens'];
+                if ($imagem && file_exists("uploads/$imagem")) {
+                    unlink("uploads/$imagem"); // Remove o arquivo da imagem
+                }
+            }
+
+            // Prepara e executa a exclusão dos produtos
+            $stmt = $pdo->prepare("DELETE FROM produtos WHERE id_prod IN ($ids)");
+            $stmt->execute();
+        } else {
+            // Se $ids não for um array, não faz nada ou mostra uma mensagem de erro
+            echo "Nenhum produto selecionado para exclusão.";
+        }
     }
 
-    // Edição de informações de um 
+    // Edição de informações de um produto
     if (isset($_POST['editar'])) {
-        $id = $_POST['id'];
+        $id = $_POST['id_prod']; 
         $nome = $_POST['nome'];
         $tamanho = $_POST['tamanho'];
         $material = $_POST['material'];
+        $imagemNome = $_POST['imagem_antiga'];
 
-        $stmt = $pdo->prepare('UPDATE produtos SET nome = ?, tamanho = ? WHERE id_prod = ?');
-        $stmt->execute([$nome, $tamanho, $id]);
+        // Lida com o upload da nova foto
+        if (isset($_FILES['foto']) && $_FILES['foto']['error'] == UPLOAD_ERR_OK) {
+            $fotoTmp = $_FILES['foto']['tmp_name'];
+            $imagemNome = uniqid() . '.jpg'; // Gera um nome único para a foto
+            $destino = 'uploads/' . $imagemNome;
+
+            // Redimensiona a imagem para 218x148 px
+            list($larguraOriginal, $alturaOriginal) = getimagesize($fotoTmp);
+            $imagemOriginal = imagecreatefromjpeg($fotoTmp);
+            $imagemRedimensionada = imagecreatetruecolor(218, 148);
+            imagecopyresampled($imagemRedimensionada, $imagemOriginal, 0, 0, 0, 0, 218, 148, $larguraOriginal, $alturaOriginal);
+            imagejpeg($imagemRedimensionada, $destino);
+            imagedestroy($imagemOriginal);
+            imagedestroy($imagemRedimensionada);
+
+            // Remove a imagem antiga, se existir
+            if ($imagemNome !== $_POST['imagem_antiga'] && file_exists("uploads/{$_POST['imagem_antiga']}")) {
+                unlink("uploads/{$_POST['imagem_antiga']}");
+            }
+        }
+
+        $stmt = $pdo->prepare('UPDATE produtos SET nome = ?, tamanho = ?, material = ?, imagens = ? WHERE id_prod = ?');
+        $stmt->execute([$nome, $tamanho, $material, $imagemNome, $id]);
     }
 }
 ?>
 
 <?php require 'header.php'?>
-    <h1>Gerenciamento de Produtos</h1>
+<h1>Gerenciamento de Produtos</h1>
 
-    <!-- Formulário para adicionar um novo produto -->
-    <h2>Adicionar Produto</h2>
-    <form method="post" action="">
-        <label>Nome:</label>
-        <input type="text" name="nome" required>
-        <label>tamanho:</label>
-        <input type="text" name="tamanho" required>
-        <label>material:</label>
-        <input type="text" name="material" required>
-        <button type="submit" name="adicionar">Adicionar</button>
-    </form>
+<!-- Formulário para adicionar um novo produto -->
+<h2>Adicionar Produto</h2>
+<form method="post" action="" enctype="multipart/form-data">
+    <label>Nome:</label>
+    <input type="text" name="nome" required>
+    <label>Tamanho:</label>
+    <input type="text" name="tamanho" required>
+    <label>Material:</label>
+    <input type="text" name="material" required>
+    <label for="foto">Foto:</label>
+    <input type="file" name="foto" id="foto" class="form-control-file" accept="image/jpeg">
+    <button type="submit" name="adicionar">Adicionar</button>
+</form>
 
-    <!-- Tabela de usuários com opções de edição e exclusão -->
-    <h2>Produtos</h2>
-    <form method="post" action="">
-        <table>
-            <tr>
-                <th>Selecionar</th>
-                <th>Nome</th>
-                <th>tamanhos</th>
-                <th>Material</th>
-            </tr>
-            <?php
-            // Listar todos os usuários
-            $stmt = $pdo->query('SELECT * FROM produtos');
-            while ($row = $stmt->fetch()) {
-                echo "<tr>
-                    <td><input type='checkbox' name='ids[]' value='{$row['id_prod']}'></td>
-                    <td>{$row['nome']}</td>
-                    <td>{$row['tamanho']}</td>
-                    <td>
-                        <!-- Formulário de edição -->
-                        <form method='post' action='' style='display:inline'>
-                            <input type='hidden' name='id_prod' value='{$row['id_prod']}'>
-                            <input type='text' name='nome' value='{$row['nome']}' required>
-                            <input type='text' name='tamanho' value='{$row['tamanho']}' required>
-                            <input type='text' name='material' value='{$row['material']}'
-                            <button type='submit' name='editar'>Editar</button>
-                        </form>
-                    </td>
-                </tr>";
-            }
-            ?>
-        </table>
-        <!-- Botão para excluir os usuários selecionados -->
-        <button type="submit" name="excluir">Excluir Selecionados</button>
-    </form>
+<!-- Tabela de produtos com opções de edição e exclusão -->
+<h2>Produtos</h2>
+<form method="post" action="">
+    <table>
+        <tr>
+            <th>Selecionar</th>
+            <th>Nome</th>
+            <th>Tamanho</th>
+            <th>Material</th>
+            <th>Imagem</th>
+        </tr>
+        <?php
+        // Listar todos os produtos
+        $stmt = $pdo->query('SELECT * FROM produtos');
+        while ($row = $stmt->fetch()) {
+            $imagem = $row['imagens'] ? "uploads/{$row['imagens']}" : 'uploads/default.jpg'; // Caminho da imagem ou imagem padrão
+            echo "<tr>
+                <td><input type='checkbox' name='ids[]' value='{$row['id_prod']}'></td>
+                <td>{$row['nome']}</td>
+                <td>{$row['tamanho']}</td>
+                <td>{$row['material']}</td>
+                <td><img src='$imagem' alt='Imagem do produto' style='width: 100px; height: auto;'></td>
+                <td>
+                    <!-- Formulário de edição -->
+                    <form method='post' action='' enctype='multipart/form-data' style='display:inline'>
+                        <input type='hidden' name='id_prod' value='{$row['id_prod']}'>
+                        <input type='hidden' name='imagem_antiga' value='{$row['imagens']}'>
+                        <input type='text' name='nome' value='{$row['nome']}' required>
+                        <input type='text' name='tamanho' value='{$row['tamanho']}' required>
+                        <input type='text' name='material' value='{$row['material']}' required>
+                        <input type='file' name='foto' class='form-control-file' accept='image/jpeg'>
+                        <button type='submit' name='editar'>Editar</button>
+                    </form>
+                </td>
+            </tr>";
+        }
+        ?>
+    </table>
+    <!-- Botão para excluir os produtos selecionados -->
+    <button type="submit" name="excluir">Excluir Selecionados</button>
+</form>
 </body>
 </html>

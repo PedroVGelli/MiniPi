@@ -52,6 +52,7 @@ class Usuario {
         $stmt->bindParam(':senha', $senhaHash); // Usa a senha criptografada
         $stmt->bindParam(':telefone', $telefone);
         $stmt->bindParam(':email', $email);
+        
 
         // Executa a consulta e retorna o resultado
         return $stmt->execute();
