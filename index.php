@@ -20,43 +20,54 @@ if (isset($_SESSION['user_id'])) {
     exit();
 }
 ?>
-  <?php @require 'header.php'?>
-  <h1>Olá Usuário Normal!</h1>
-        <section class="banner">
-         <h4>   
-            <div class="txt-banner" >
-                <p>PROMOÇÃO</p>
-                <p style="font-size: 70px;">50%</p>
-                    <p  style="font-size: 70px;">OFF</p>
-                    <p>DESCONTO EM TODA A COLEÇÃO DE VERÃO</p>
-            </div>
-        </h4>  
-        </section>
-        
-        <section class="card" >
-            <h1 class="extra">DESCONTO EM TODA A COLEÇÃO DE VERÃO</h1>
-            
-                     <div class="card-img">
-                        <img src="img/jaqueta.png" alt="">
-                        <img src="img/modelo.png" alt="">
-                        <img src="img/Sapatos.png" alt="">
-                        <img src="img/vestido.png" alt="">
-                        <img src="img/oculos.png" alt="">
-                    </div>
+  <?php require 'header.php'?>
+  <body>
     
-        </section>    
+    <main>
+        <section class="banner">
+            <div class="txt-banner">
+                <p>PROMOÇÃO</p>
+                <p class="discount">50%</p>
+                <p class="discount">OFF</p>
+                <p>DESCONTO EM TODA A COLEÇÃO DE VERÃO</p>
+            </div>
+        </section>
+
+        <section class="catalogo">
+            <h1 class="extra">Desconto em Toda a Coleção de Verão</h1>
+            <div class="card-container">
+                <div class="card">
+                    <img src="img/jaqueta.png" alt="Jaqueta" class="card-img">
+                    <h2>Jaqueta</h2>
+                </div>
+                <div class="card">
+                    <img src="img/modelo.png" alt="Macacão" class="card-img">
+                    <h2>Macacão</h2>
+                </div>
+                <div class="card">
+                    <img src="img/Sapatos.png" alt="Sapatos" class="card-img">
+                    <h2>Sapatos</h2>
+                </div>
+                <div class="card">
+                    <img src="img/vestido.png" alt="Vestido" class="card-img">
+                    <h2>Vestido</h2>
+                </div>
+                <div class="card">
+                    <img src="img/oculos.png" alt="Óculos" class="card-img">
+                    <h2>Óculos</h2>
+                </div>
+            </div>
+        </section>
     </main>
     <footer>
-        <div>
-            <a href="catalogo.php">Catalogo </a>
-            <a href="Sobre.php">Sobre a loja </a>
-        <div>
-        <div>
-        <p>Aqui na LudoFashion você irá encontrar a melhor variedade de moda e cosmeticos femininos e com os melhores preços do mercado</p>
+        <div class="footer-links">
+            <a href="catalogo.php">Catálogo</a>
+            <a href="Sobre.php">Sobre a Loja</a>
+            <a href="logout.php">Sair</a>
         </div>
-        <a href="logout.php">Sair</a>
-
+        <p>Aqui na LudoFashion você encontra a melhor variedade de moda e cosméticos femininos com os melhores preços do mercado.</p>
     </footer>
+</body>
     
     
 

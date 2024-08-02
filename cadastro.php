@@ -26,28 +26,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 <?php require 'header.php'; ?>
-<div class='retangulo3'>
-    <h1>Cadastro</h1>
-    <form method="post" action="">
-        <label>Data de Nascimento:</label>
-        <input type="date" name="nascimento" required><br>
-        
-        <label>CPF:</label>
-        <input type="text" name="CPF" required><br>
-        
-        <label>Nome:</label>
-        <input type="text" name="nome" required><br>
-        
-        <label>Email:</label>
-        <input type="email" name="email" required><br>
-        
-        <label>Senha:</label>
-        <input type="password" name="senha" required><br>
-        
-        <label>Telefone:</label>
-        <input type="text" name="telefone" required><br>
-        
-        <button type="submit">Confirme seu cadastro</button>
-        <?php if (isset($error)) echo "<p>$error</p>"; ?>
-    </form>
+<div class="container-cadastro">
+  <h1>Cadastro</h1>
+  <form method="post" action="">
+    <label for="nascimento">Data de Nascimento:</label>
+    <input type="date" id="nascimento" name="nascimento" required><br>
+
+    <label for="cpf">CPF:</label>
+    <input type="text" id="cpf" name="CPF" required><br>
+
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" name="senha" required><br>
+
+    <label for="telefone">Telefone:</label>
+    <input type="text" id="telefone" name="telefone" required><br>
+
+    <button type="submit">Confirme seu cadastro</button>
+    <?php if (isset($error)) echo "<p>$error</p>"; ?>
+  </form>
 </div>
+</body>

@@ -31,19 +31,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-    <div class= retangulo2>
-    <h1>Login</h1>
-    <form method="post" action="">
-        <label>Email:</label>
-        <input type="email" name="email" required>
-        <label>Senha:</label>
-        <input type="password" name="senha" required>
-        <button type="submit">Entrar</button>
-        <?php if (isset($error)) echo "<p>$error</p>"; ?>
-    </form>
-    </div>
-   
-    <a href="cadastro.php">TESTANDO</a>
+    <div class="login-container">
+  <h1>Login</h1>
+  <form method="post" action="">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" name="senha" required>
+    <button type="submit">Entrar</button>
+    <?php if (isset($error)) echo "<p>$error</p>"; ?>
+  </form>
+  <p class="register-link">Não tem uma conta? <a href="cadastro.php">Cadastre-se</a></p>
+</div>
+
 </body>
 
 

@@ -11,6 +11,8 @@ CREATE TABLE usuarios (
     email VARCHAR(100) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL,
     perfil ENUM('normal', 'administrador') DEFAULT 'normal',
+    CPF INT(11) NOT NULL,
+    telefone INT(11) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
