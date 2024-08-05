@@ -543,6 +543,50 @@ grid-template-columns: repeat(2, 1fr);
     flex-direction: column;
     align-items: center;
 }
+.produto-detalhe {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.produto-imagem {
+    text-align: center;
+}
+
+.produto-imagem img {
+    max-width: 100%;
+    height: auto;
+}
+
+.produto-info {
+    margin-top: 20px;
+}
+
+.produto-info h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.produto-info p {
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+.produto-info a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.produto-info a:hover {
+    background-color: #FF0099;
+}
 a:hover {
     color: rgb(237, 22, 198);
     text-shadow: -3px -1px #000;

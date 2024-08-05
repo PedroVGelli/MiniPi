@@ -27,6 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nome = $_POST['nome'];
         $tamanho = $_POST['tamanho'];
         $material = $_POST['material'];
+        $preco = $_POST['preco'];
+        $categoria = $_POST['categoria'];
+        $descricao = $_POST['DESCRICAO'];
 
         $imagemNome = null;
 
@@ -46,8 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             imagedestroy($imagemRedimensionada);
         }
 
-        $stmt = $pdo->prepare('INSERT INTO produtos (nome, material, tamanho, imagens) VALUES (?, ?, ?, ?)');
-        $stmt->execute([$nome, $material, $tamanho, $imagemNome]);
+        $stmt = $pdo->prepare('INSERT INTO produtos (nome, material, tamanho,preco,DESCRICAO, categoria, imagens) VALUES (?, ?, ?, ?, ?, ?,?)');
+        $stmt->execute([$nome, $material, $tamanho,$preco, $categoria, $descricao,$imagemNome]);
     }
 
     // Exclusão de produtos selecionados
@@ -83,6 +86,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nome = $_POST['nome'];
         $tamanho = $_POST['tamanho'];
         $material = $_POST['material'];
+        $preco = $_POST['preco'];
+        $categoria = $_POST['categoria'];
+        $descricao = $_POST['DESCRICAO'];
         $imagemNome = $_POST['imagem_antiga'];
 
         // Lida com o upload da nova foto
@@ -106,8 +112,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
 
-        $stmt = $pdo->prepare('UPDATE produtos SET nome = ?, tamanho = ?, material = ?, imagens = ? WHERE id_prod = ?');
-        $stmt->execute([$nome, $tamanho, $material, $imagemNome, $id]);
+        $stmt = $pdo->prepare('UPDATE produtos SET nome = ?, tamanho = ?, material = ?, preco = ?, imagens = ?, DESCRICAO = ?, categoria = ? WHERE id_prod = ?');
+        $stmt->execute([$nome, $tamanho, $material,$preco, $imagemNome, $id]);
     }
 }
 ?>
@@ -124,6 +130,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="text" name="tamanho" required>
     <label>Material:</label>
     <input type="text" name="material" required>
+    <label>Descricao:</label>
+    <input type="text" name="DESCRICAO" required>
+    <label>categoria:</label>
+    <input type="text" name="categoria" required>
+    <label>Preço:</label>
+    <input type="text" name="preco" required>
     <label for="foto">Foto:</label>
     <input type="file" name="foto" id="foto" class="form-control-file" accept="image/jpeg">
     <button type="submit" name="adicionar">Adicionar</button>
@@ -138,7 +150,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <th>Nome</th>
             <th>Tamanho</th>
             <th>Material</th>
+            <th>Preço</th>
             <th>Imagem</th>
+            <th>Descricao</th>
+            <th>categoria</th>
         </tr>
         <?php
         // Listar todos os produtos
@@ -150,6 +165,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>{$row['nome']}</td>
                 <td>{$row['tamanho']}</td>
                 <td>{$row['material']}</td>
+                <td>{$row['preco']}</td>
+                <td>{$row['DESCRICAO']}</td>
+                <td>{$row['categoria']}</td>
                 <td><img src='$imagem' alt='Imagem do produto' style='width: 100px; height: auto;'></td>
                 <td>
                     <!-- Formulário de edição -->
@@ -157,8 +175,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <input type='hidden' name='id_prod' value='{$row['id_prod']}'>
                         <input type='hidden' name='imagem_antiga' value='{$row['imagens']}'>
                         <input type='text' name='nome' value='{$row['nome']}' required>
+                        <input type='text' name='preco' value='{$row['nome']}' required>
                         <input type='text' name='tamanho' value='{$row['tamanho']}' required>
                         <input type='text' name='material' value='{$row['material']}' required>
+                        <input type='text' name='categoria' value'{$row['categoria']}' required>
+                        <input type='text' name'DESCRICAO' value'{$row['DESCRICAO']}' required>
                         <input type='file' name='foto' class='form-control-file' accept='image/jpeg'>
                         <button type='submit' name='editar'>Editar</button>
                     </form>

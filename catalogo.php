@@ -54,15 +54,10 @@ $produtos = $stmt->fetchAll();
                 <label for="bolsas">Bolsas</label>
             </div>
         </div>
-    </div> <h5>Conheça nosso catálogo de produtos</h5>
-        <p>Os mais variados produtos femininos com os melhores preços do mercado!</p>
-    <a href="cadastroprod.php">Adicionar Novo Produto</a>
- 
-    <div class="cat-corpo">
-       
+    </div>
     
-        <div class="cat-prod">
-            <?php foreach ($produtos as $produto): ?>
+    <div class="cat-prod">
+         <?php foreach ($produtos as $produto): ?>
                 <div class="produto">
                     <?php if (!empty($produto['imagens'])): ?>
                         <img src="uploads/<?php echo htmlspecialchars($produto['imagens']); ?>" alt="<?php echo htmlspecialchars($produto['nome']); ?>">
@@ -80,6 +75,15 @@ $produtos = $stmt->fetchAll();
                     <?php endif; ?>
                 </div>
             <?php endforeach; ?>
+    <h5>Conheça nosso catálogo de produtos</h5>
+        <p>Os mais variados produtos femininos com os melhores preços do mercado!</p>
+    <a href="cadastrarprod.php">Adicionar Novo Produto</a>
+ 
+    <div class="cat-corpo">
+       
+    
+        
+           
         </div>
     </div>
 </section>
