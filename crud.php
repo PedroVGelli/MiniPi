@@ -102,4 +102,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit" name="excluir">Excluir Selecionados</button>
     </form>
 </body>
+<?php require 'footer.php'?>
+
 </html>

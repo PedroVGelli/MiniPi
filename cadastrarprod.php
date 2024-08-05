@@ -152,8 +152,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <th>Material</th>
             <th>Preço</th>
             <th>Imagem</th>
+            <th>Categoria</th>
             <th>Descricao</th>
-            <th>categoria</th>
         </tr>
         <?php
         // Listar todos os produtos
@@ -192,4 +192,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <button type="submit" name="excluir">Excluir Selecionados</button>
 </form>
 </body>
+<?php require 'footer.php'?>
 </html>

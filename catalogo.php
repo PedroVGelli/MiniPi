@@ -89,4 +89,7 @@ $produtos = $stmt->fetchAll();
 </section>
 
 </body>
+<?php require 'footer.php'?>
+
 </html>
+

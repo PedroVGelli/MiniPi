@@ -27,7 +27,11 @@ CREATE TABLE produtos (
     id_prod INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     material VARCHAR(100) NOT NULL,
-    tamanho VARCHAR(5) NOT NULL
+    tamanho VARCHAR(5) NOT NULL,
+    imagens VARCHAR(300),
+    categoria VARCHAR(20),
+    DESCRICAO TEXT
+
     
 );
 
