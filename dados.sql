@@ -23,6 +23,7 @@ INSERT INTO usuarios (nome, email, senha, perfil) VALUES
 
 
 
+
 CREATE TABLE produtos (
     id_prod INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
@@ -36,3 +37,13 @@ CREATE TABLE produtos (
 );
 
 INSERT INTO produtos (nome, material, tamanho) VALUES ("Calça Skinny", "Jeans", "43");
+
+
+CREATE TABLE wishlist (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    produto_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES usuarios(id),
+    FOREIGN KEY (produto_id) REFERENCES produtos(id_prod)
+);
+

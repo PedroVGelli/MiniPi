@@ -12,6 +12,7 @@
     <link rel="shortcut icon" href="img/jordanlogo.png" type="image/x-icon">
     <title>HTML PROJETO</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <script src="categoria.js" defer></script>
 
 
 </head>
@@ -24,9 +25,9 @@
             <button type="submit" id="btn-buscar"> <img src="img/pesquisa2.png" alt="" width="35px"></button>
         </form>
 
-        <a href="cadastro.php" class="icon-link">
+        <a href="perfil.php" class="icon-link">
             <img src="img/conta.png" alt="" width="40px">
-            Cadastre-se
+            Perfil
         </a>
 
         <a href="sobre.php" class="icon-link">

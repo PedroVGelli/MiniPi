@@ -130,10 +130,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="text" name="tamanho" required>
     <label>Material:</label>
     <input type="text" name="material" required>
-    <label>Descricao:</label>
-    <input type="text" name="DESCRICAO" required>
-    <label>categoria:</label>
+    <label>Descrição</label>
     <input type="text" name="categoria" required>
+    <label>categoria:</label>
+    <input type="text" name="DESCRICAO" required>
     <label>Preço:</label>
     <input type="text" name="preco" required>
     <label for="foto">Foto:</label>
@@ -152,8 +152,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <th>Material</th>
             <th>Preço</th>
             <th>Imagem</th>
-            <th>Categoria</th>
             <th>Descricao</th>
+            <th>Categoria</th>
         </tr>
         <?php
         // Listar todos os produtos
@@ -168,7 +168,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>{$row['preco']}</td>
                 <td>{$row['DESCRICAO']}</td>
                 <td>{$row['categoria']}</td>
-                <td><img src='$imagem' alt='Imagem do produto' style='width: 100px; height: auto;'></td>
+                <td><img src='$imagem' alt='Imagem do produto' style='width: 300px; height: auto;'></td>
                 <td>
                     <!-- Formulário de edição -->
                     <form method='post' action='' enctype='multipart/form-data' style='display:inline'>

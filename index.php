@@ -21,9 +21,7 @@ if (isset($_SESSION['user_id'])) {
 }
 ?>
   <?php require 'header.php'?>
-  <body>
     
-    <main>
         <section class="banner">
             <div class="txt-banner">
                 <p>PROMOÇÃO</p>

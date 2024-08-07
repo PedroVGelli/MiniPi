@@ -27,17 +27,15 @@ if (isset($_SESSION['user_id'])) {
     $user = $stmt->fetch();
     $is_admin = $user['perfil'] === 'administrador';
 }
+if (isset($_SESSION['user_id'])) {
+    // Lógica para adicionar à wishlist
+    if (isset($_POST['adicionarwish'])) {
+        $stmt = $pdo->prepare('INSERT INTO wishlist (user_id, produto_id) VALUES (?, ?)');
+        $stmt->execute([$user_id, $id_produto]);
+    }
+}
 ?>
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($produto['nome']); ?></title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
     <?php require 'header.php'; ?>
     
     <section class="produto-detalhe">
@@ -56,11 +54,15 @@ if (isset($_SESSION['user_id'])) {
                 <p>Categoria: <?php echo htmlspecialchars($produto['categoria']); ?></p>
                 
                 <?php if ($is_admin): ?>
-                    <a href="editar.php?id=<?php echo htmlspecialchars($produto['id_prod']); ?>">Editar</a>
-                    <a href="excluir.php?id=<?php echo htmlspecialchars($produto['id_prod']); ?>">Excluir</a>
+                    <a href="cadastrarprod.php?id=<?php echo htmlspecialchars($produto['id_prod']); ?>">Editar</a>
+                    <a href="cadastrarprod.php?id=<?php echo htmlspecialchars($produto['id_prod']); ?>">Excluir</a>
                 <?php else: ?>
                     <a href="comprar.php?id=<?php echo htmlspecialchars($produto['id_prod']); ?>" class="btn-comprar">Comprar</a>
-                    <a href="wishlist.php?id=<?php echo htmlspecialchars($produto['id_prod']); ?>" class="btn-wishlist">Adicionar a WishList</a>
+                    <a href="wishlist.php?id=<?php echo htmlspecialchars($produto['id_prod']); ?>" class="btn-wishlist">Ir para a lista de desejos</a>
+                <form method="post">
+                    <button type="submit" name="adicionarwish" class="btn-wishlist">Adicionar à lista de desejos</button>
+                </form>
+
                 <?php endif; ?>
             </div>
         </div>
