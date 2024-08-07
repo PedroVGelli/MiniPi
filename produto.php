@@ -42,7 +42,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="container">
             <div class="produto-imagem">
                 <?php if (!empty($produto['imagens'])): ?>
-                    <img src="uploads/<?php echo htmlspecialchars($produto['imagens']); ?>" alt="<?php echo htmlspecialchars($produto['nome']); ?>">
+                    <img src="uploads/<?php echo htmlspecialchars($produto['imagens']); ?>" alt="<?php echo htmlspecialchars($produto['nome']); ?>" width="500px">
                 <?php else: ?>
                     <img src="img/default.png" alt="Imagem não disponível">
                 <?php endif; ?>

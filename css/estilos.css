@@ -248,48 +248,6 @@ h4 div{
     outline: none;
 
 }
-/* Importações de fontes */
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Oswald", sans-serif;
-}
-
-/* Estilização geral */
-body {
-    background-color: #ffffff;
-    color: #000;
-    background-image: url(../img/pugnovo.png);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-}
-
-/* Cabeçalho */
-header {
-    background-color: #FF0099;
-    padding: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #fff;
-}
-
-/* Banner */
-.banner {
-    width: 100%;
-    height: 300px;
-    background-color: #FF0099;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
 
 .txt-banner {
     text-align: center;
@@ -303,12 +261,6 @@ header {
 
 .txt-banner .discount {
     font-size: 4rem;
-}
-
-/* Catálogo */
-.catalogo {
-    padding: 2rem;
-    text-align: center;
 }
 
 .card-container {
@@ -471,7 +423,47 @@ grid-template-columns: repeat(2, 1fr);
 .btn-cat{
     font-size: 30px;
     margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
         
+}
+.btn-cat label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.btn-cat label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #eee;
+    border: 2px solid #333;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+input[type="radio"]:checked + label::before {
+    background: #FF0099;
+    border-color: #ffffff;
+}
+.btn-cat label:hover::before {
+    background: #ddd;
+}
+input[type="radio"]:checked + label {
+    font-weight: bold;
+}
+input[type="radio"] {
+    display: none;
 }
 
 .cat-corpo{
@@ -714,4 +706,79 @@ a:hover {
     }
     .font {
         font-weight: 400;
+    }
+    .container-perfil {
+        width: 80%;
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .titulo-pagina {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: #FF0099;
+    }
+    
+    .formulario-perfil {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .formulario-perfil label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+    
+    .formulario-perfil input[type="text"],
+    .formulario-perfil input[type="email"],
+    .formulario-perfil input[type="password"] {
+        padding: 0.75rem;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        width: 100%;
+    }
+    
+    .botao-salvar {
+        background-color: #FF0099;
+        color: #fff;
+        padding: 0.75rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+    }
+    
+    .botao-salvar:hover {
+        background-color: #e60077;
+    }
+    
+    .informacoes-usuario {
+        margin-top: 2rem;
+    }
+    
+    .titulo-informacoes {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #FF0099;
+    }
+    
+    .informacoes-usuario ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .informacoes-usuario li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .informacoes-usuario li:last-child {
+        border-bottom: none;
     }

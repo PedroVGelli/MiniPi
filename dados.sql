@@ -11,14 +11,14 @@ CREATE TABLE usuarios (
     email VARCHAR(100) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL,
     perfil ENUM('normal', 'administrador') DEFAULT 'normal',
-    CPF INT(11) NOT NULL,
-    telefone INT(11) NOT NULL,
+    CPF INT(15) NOT NULL,
+    telefone INT(15) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Inserção do administrador inicial
-INSERT INTO usuarios (nome, email, senha, perfil) VALUES 
-('Administrador', 'admin@exemplo.com', SHA2('senha_admin', 256), 'administrador');
+INSERT INTO usuarios (nome, email, senha, perfil, CPF, telefone ) VALUES 
+('Administrador', 'admin@exemplo.com', SHA2('senha_admin', 256), 'administrador', '12345678986','98976543211');
 
 
 

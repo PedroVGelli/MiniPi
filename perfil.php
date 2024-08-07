@@ -39,34 +39,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <?php require 'header.php' ?>
-<h1>Meu Perfil</h1>
+<div class="container-perfil">
+    <h1 class="titulo-pagina">Meu Perfil</h1>
 
-<!-- Formulário para editar as informações do usuário -->
-<form method="post" action="">
-    <label>Nome:</label>
-    <input type="text" name="nome" value="<?php echo htmlspecialchars($user_info['nome']); ?>" required>
-    
-    <label>Email:</label>
-    <input type="email" name="email" value="<?php echo htmlspecialchars($user_info['email']); ?>" required>
-    
-    <label>Telefone:</label>
-    <input type="text" name="telefone" value="<?php echo htmlspecialchars($user_info['telefone']); ?>" required>
-    
-    <label>Digite sua nova senha:</label>
-    <input type="password" name="senha">
-    
-    <button type="submit">Salvar Alterações</button>
-</form>
+    <!-- Formulário para editar as informações do usuário -->
+    <form method="post" action="" class="formulario-perfil">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" value="<?php echo htmlspecialchars($user_info['nome']); ?>" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($user_info['email']); ?>" required>
+        
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" name="telefone" value="<?php echo htmlspecialchars($user_info['telefone']); ?>" required>
+        
+        <label for="senha">Digite sua nova senha:</label>
+        <input type="password" id="senha" name="senha">
+        
+        <button type="submit" class="botao-salvar">Salvar Alterações</button>
+    </form>
 
-<!-- Exibir todas as informações do usuário -->
-<h2>Informações do Usuário</h2>
-<ul>
-    <li><strong>Nome:</strong> <?php echo htmlspecialchars($user_info['nome']); ?></li>
-    <li><strong>Email:</strong> <?php echo htmlspecialchars($user_info['email']); ?></li>
-    <li><strong>Telefone:</strong> <?php echo htmlspecialchars($user_info['telefone']); ?></li>
-   <li><strong>Nascimento:</strong> <?php echo htmlspecialchars($user_info['nascimento']);?></li>
-</ul>
+    <!-- Exibir todas as informações do usuário -->
+    <div class="informacoes-usuario">
+        <h2 class="titulo-informacoes">Informações do Usuário</h2>
+        <ul>
+            <li><strong>Nome:</strong> <?php echo htmlspecialchars($user_info['nome']); ?></li>
+            <li><strong>Email:</strong> <?php echo htmlspecialchars($user_info['email']); ?></li>
+            <li><strong>Telefone:</strong> <?php echo htmlspecialchars($user_info['telefone']); ?></li>
+            <li><strong>Nascimento:</strong> <?php echo htmlspecialchars($user_info['nascimento']); ?></li>
+        </ul>
+    </div>
+</div>
 
-</body>
 <?php require 'footer.php' ?>
+</body>
 </html>
