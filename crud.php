@@ -53,8 +53,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <?php require 'header.php'?>
-    <h1>Gerenciamento de Usuários</h1>
-
+    <h1 class="titulo-pagina">Gerenciamento de Usuários</h1>
+        <div class="usuario-adm">
     <!-- Formulário para adicionar um novo usuário -->
     <h2>Adicionar Usuário</h2>
     <form method="post" action="">
@@ -66,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="password" name="senha" required>
         <button type="submit" name="adicionar">Adicionar</button>
     </form>
+
     <a href="cadastrarprod.php">Cadastrar produtos</a>
     <!-- Tabela de usuários com opções de edição e exclusão -->
     <h2>Usuários</h2>
@@ -76,7 +77,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <th>Nome</th>
                 <th>Email</th>
                 <th>Ações</th>
-            </tr>
+            </tr>    
+</div>
             <?php
             // Listar todos os usuários
             $stmt = $pdo->query('SELECT * FROM usuarios');
@@ -101,7 +103,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <!-- Botão para excluir os usuários selecionados -->
         <button type="submit" name="excluir">Excluir Selecionados</button>
     </form>
-</body>
+
 <?php require 'footer.php'?>
 
-</html>

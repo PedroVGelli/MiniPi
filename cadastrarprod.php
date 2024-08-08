@@ -119,8 +119,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <?php require 'header.php'?>
-<h1>Gerenciamento de Produtos</h1>
-
+<h1 class="titulo-pagina">Gerenciamento de Produtos</h1>
+<div class="usuario-adm">
 <!-- Formulário para adicionar um novo produto -->
 <h2>Adicionar Produto</h2>
 <form method="post" action="" enctype="multipart/form-data">
@@ -191,6 +191,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- Botão para excluir os produtos selecionados -->
     <button type="submit" name="excluir">Excluir Selecionados</button>
 </form>
+    </div>
 </body>
 <?php require 'footer.php'?>
 </html>

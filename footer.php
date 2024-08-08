@@ -1,3 +1,4 @@
+</main>
 <footer>
         <div class="footer-container">
             <div class="footer-section about">
@@ -46,3 +47,5 @@
             <p class="font">&copy; 2024 LudoFashion | Todos os direitos reservados.</p>
         </div>
     </footer>
+</body>
+</html>
