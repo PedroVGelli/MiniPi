@@ -40,34 +40,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?php require 'header.php' ?>
 <div class="container-perfil">
-    <h1 class="titulo-pagina">Meu Perfil</h1>
+    <h1 class="titulo-pagina">Meu perfil</h1>
 
-    <!-- Formulário para editar as informações do usuário -->
-    <form method="post" action="" class="formulario-perfil">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" value="<?php echo htmlspecialchars($user_info['nome']); ?>" required>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($user_info['email']); ?>" required>
-        
-        <label for="telefone">Telefone:</label>
-        <input type="text" id="telefone" name="telefone" value="<?php echo htmlspecialchars($user_info['telefone']); ?>" required>
-        
-        <label for="senha">Digite sua nova senha:</label>
-        <input type="password" id="senha" name="senha">
-        
-        <button type="submit" class="botao-salvar">Salvar Alterações</button>
-    </form>
+    <div class="perfil-container">
+        <div class="formulario-container">
+            <!-- Formulário para editar as informações do usuário -->
+            <form method="post" action="" class="formulario-perfil">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" value="<?php echo htmlspecialchars($user_info['nome']); ?>" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($user_info['email']); ?>" required>
+                
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone" name="telefone" value="<?php echo htmlspecialchars($user_info['telefone']); ?>" required>
+                
+                <label for="senha">Digite sua nova senha:</label>
+                <input type="password" id="senha" name="senha">
+                
+                <button type="submit" class="botao-salvar">Gravar</button>
+            </form>
+        </div>
 
-    <!-- Exibir todas as informações do usuário -->
-    <div class="informacoes-usuario">
-        <h2 class="titulo-informacoes">Informações do Usuário</h2>
-        <ul>
-            <li><strong>Nome:</strong> <?php echo htmlspecialchars($user_info['nome']); ?></li>
-            <li><strong>Email:</strong> <?php echo htmlspecialchars($user_info['email']); ?></li>
-            <li><strong>Telefone:</strong> <?php echo htmlspecialchars($user_info['telefone']); ?></li>
-            <li><strong>Nascimento:</strong> <?php echo htmlspecialchars($user_info['nascimento']); ?></li>
-        </ul>
+        <div class="informacoes-usuario">
+            <h2 class="titulo-informacoes">Gerenciar e proteger sua conta</h2>
+            <ul>
+                <li><strong>Nome:</strong> <?php echo htmlspecialchars($user_info['nome']); ?></li>
+                <li><strong>Email:</strong> <?php echo htmlspecialchars($user_info['email']); ?></li>
+                <li><strong>Telefone:</strong> <?php echo htmlspecialchars($user_info['telefone']); ?></li>
+            </ul>
+        </div>
     </div>
 </div>
 

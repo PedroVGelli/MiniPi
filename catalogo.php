@@ -60,26 +60,33 @@ $produtos = $stmt->fetchAll();
     
     <div class="cat-prod">
         <?php foreach ($produtos as $produto): ?>
-            <div class="produto <?php echo htmlspecialchars($produto['categoria']); ?>">
+            <div class="produto-card <?php echo htmlspecialchars($produto['categoria']); ?>">
                 <?php if (!empty($produto['imagens'])): ?>
-                    <img src="uploads/<?php echo htmlspecialchars($produto['imagens']); ?>" alt="<?php echo htmlspecialchars($produto['nome']); ?>">
+                    <img src="uploads/<?php echo htmlspecialchars($produto['imagens']); ?>" alt="<?php echo htmlspecialchars($produto['nome']); ?>" class="produto-img">
                 <?php else: ?>
-                    <img src="img/default.png" alt="Imagem não disponível">
+                    <img src="img/default.png" alt="Imagem não disponível" class="produto-img">
                 <?php endif; ?>
-                <a href="produto.php?id=<?php echo htmlspecialchars($produto['id_prod']); ?>">
-                    <?php echo htmlspecialchars($produto['nome']); ?><br>
-                    R$: <?php echo number_format($produto['preco'], 2, ',', '.'); ?>
-                    <span class="material-symbols-outlined">favorite</span>
-                </a>
+                <div class="produto-infow">
+                    <a href="produto.php?id=<?php echo htmlspecialchars($produto['id_prod']); ?>" class="produto-link">
+                        <h3><?php echo htmlspecialchars($produto['nome']); ?></h3>
+                    </a>
+                    <a href="produto.php?id=<?php echo htmlspecialchars($produto['id_prod']); ?>" class="produto-link">
+                        <p>R$: <?php echo number_format($produto['preco'], 2, ',', '.'); ?></p>
+                    </a>
+                    <a href="produto.php?id=<?php echo htmlspecialchars($produto['id_prod']); ?>" class="produto-link">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </a>
+                </div>
                 <?php if ($is_admin): ?>
-                    <a href="cadastrarprod.php?id=<?php echo htmlspecialchars($produto['id_prod']); ?>">Editar</a>
-                    <a href="cadastrarprod.php?id=<?php echo htmlspecialchars($produto['id_prod']); ?>">Excluir</a>
-                    <a href="cadastrarprod.php">Adicionar Novo Produto</a>
+                    <div class="admin-links">
+                        <a href="cadastrarprod.php?id=<?php echo htmlspecialchars($produto['id_prod']); ?>" class="admin-link">Editar</a>
+                        <a href="cadastrarprod.php?id=<?php echo htmlspecialchars($produto['id_prod']); ?>" class="admin-link">Excluir</a>
+                        <a href="cadastrarprod.php" class="admin-link">Adicionar Novo Produto</a>
+                    </div>
                 <?php endif; ?>
             </div>
         <?php endforeach; ?>
         <h5>Conheça nosso catálogo de produtos</h5>
-        <p>Os mais variados produtos femininos com os melhores preços do mercado!</p>
     </div>
 </section>
 

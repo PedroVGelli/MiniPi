@@ -36,9 +36,9 @@
             <div class="footer-section social">
                 <h2>Redes Sociais</h2>
                 <div class="social-links">
-                    <a href="#"><img src="../img/facebook.png" alt="Facebook"></a>
-                    <a href="#"><img src="../img/ins.png" alt="Instagram"></a>
-                    <a href="#"><img src="../img/whats.png" alt="WhatsApp"></a>
+                    <a href="#"><img src="img/facebook.png" alt="Facebook"></a>
+                    <a href="#"><img src="img/ins.png" alt="Instagram"></a>
+                    <a href="#"><img src="img/whats.png" alt="WhatsApp"></a>
                 </div>
             </div>
         </div>
