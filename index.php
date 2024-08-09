@@ -19,7 +19,12 @@ if (isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit();
 }
+
+// Buscar produtos do banco de dados
+$stmt = $pdo->query('SELECT * FROM produtos');
+$produtos = $stmt->fetchAll();
 ?>
+
   <?php require 'header.php'?>
     
         <section class="banner">
@@ -33,6 +38,7 @@ if (isset($_SESSION['user_id'])) {
 
         <section class="catalogo">
             <h1 class="extra">Desconto em Toda a Coleção de Verão</h1>
+            
             <div class="card-container">
                 <div class="card">
                     <img src="img/jaqueta.png" alt="Jaqueta" class="card-img">
@@ -55,6 +61,7 @@ if (isset($_SESSION['user_id'])) {
                     <h2>Óculos</h2>
                 </div>
             </div>
+            
         </section>
     </main>
     
